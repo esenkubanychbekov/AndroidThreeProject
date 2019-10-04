@@ -1,9 +1,10 @@
 
-package com.kubatov.androidthree.data.model.current_weather;
+package com.example.introscreen.data.model.current_weather;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class CurrentWeatrerModel {
 

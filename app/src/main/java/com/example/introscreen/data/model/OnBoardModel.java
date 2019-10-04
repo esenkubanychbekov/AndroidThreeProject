@@ -1,23 +1,23 @@
-package com.kubatov.androidthree.data.model;
+package com.example.introscreen.data.model;
 
 import java.io.Serializable;
 
 public class OnBoardModel implements Serializable {
 
-    private int image;
+    private String image;
     private String text;
     private String textOfButton;
     private String textOfskip;
 
-    public OnBoardModel(int image, String text, String textOfButton, String textOfskip) {
-        this.image = image;
-        this.text = text;
-        this.textOfButton = textOfButton;
-        this.textOfskip = textOfskip;
-    }
+//    public OnBoardModel(String image, String text, String textOfButton, String textOfskip) {
+//        this.image = image;
+//        this.text = text;
+//        this.textOfButton = textOfButton;
+//        this.textOfskip = textOfskip;
+//    }
 
-    public int getImage() {
-        return image;
+    public String getImage(String image) {
+        return String.format("https://openweathermap.org/img/w/%s.png",image);
     }
 
     public String getText() {

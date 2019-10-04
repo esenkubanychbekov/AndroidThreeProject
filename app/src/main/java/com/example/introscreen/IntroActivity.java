@@ -53,7 +53,6 @@ public class IntroActivity extends AppCompatActivity {
         getStart = findViewById(R.id.btn_get_started);
         skip = findViewById(R.id.tv_skip);
 
-
         final List<ScreenItem> mList = new ArrayList<>();
         mList.add(new ScreenItem("IronMan","Iron Man is a fictional superhero appearing in American comic books published by Marvel Comics. ",
                 R.drawable.ironman));

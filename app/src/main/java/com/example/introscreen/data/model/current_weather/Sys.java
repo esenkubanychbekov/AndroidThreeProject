@@ -1,5 +1,5 @@
 
-package com.kubatov.androidthree.data.model.current_weather;
+package com.example.introscreen.data.model.current_weather;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

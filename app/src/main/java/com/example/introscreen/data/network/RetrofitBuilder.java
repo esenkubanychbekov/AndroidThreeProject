@@ -1,6 +1,5 @@
-package com.kubatov.androidthree.data.network;
+package com.example.introscreen.data.network;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
