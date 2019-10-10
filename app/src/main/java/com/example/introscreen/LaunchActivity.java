@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.introscreen.ui.intro.IntroActivity;
+import com.example.introscreen.ui.main.MainActivity;
+
 public class LaunchActivity extends AppCompatActivity {
 
     @Override

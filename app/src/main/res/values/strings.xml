@@ -2,4 +2,8 @@
     <string name="app_name">IntroScreen</string>
 
     <string name="api_key">3d7f3a013385dd16698d41c70a420d91</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="acess_token">pk.eyJ1IjoiZXNlbnR1ciIsImEiOiJjazFoaTdoYzMwY2VjM21ucnNxeHNhMDUxIn0.iVO-t56U67lU_gsr60e0-Q</string>
 </resources>

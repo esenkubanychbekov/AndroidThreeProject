@@ -1,4 +1,4 @@
-package com.example.introscreen;
+package com.example.introscreen.ui.intro;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.example.introscreen.R;
+import com.example.introscreen.ScreenItem;
 
 import java.util.List;
 

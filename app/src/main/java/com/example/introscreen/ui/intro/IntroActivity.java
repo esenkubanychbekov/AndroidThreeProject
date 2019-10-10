@@ -1,4 +1,4 @@
-package com.example.introscreen;
+package com.example.introscreen.ui.intro;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,6 +12,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.introscreen.R;
+import com.example.introscreen.ScreenItem;
+import com.example.introscreen.ui.main.MainActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
