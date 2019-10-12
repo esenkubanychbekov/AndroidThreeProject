@@ -1,16 +1,15 @@
 package com.example.introscreen.ui.fragments;
 
 
+
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import com.example.introscreen.R;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
@@ -19,6 +18,7 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,24 +31,24 @@ public class MapFragment extends Fragment {
 
     }
 
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        Mapbox.getInstance(getContext(), getString(R.string.acess_token));
-        View view = inflater.inflate(R.layout.fragment_map, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        Mapbox.getInstance(getContext(), "pk.eyJ1IjoiZXNlbnR1ciIsImEiOiJjazFoaTdoYzMwY2VjM21ucnNxeHNhMDUxIn0.iVO-t56U67lU_gsr60e0-Q");
+        View view =   inflater.inflate(R.layout.fragment_map, container, false);
         mapView = view.findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
-
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMapReady(@NonNull MapboxMap mapboxMap) {
+            public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+
                 MarkerOptions options = new MarkerOptions();
-                options.title("Current position");
+                options.title("Current Position");
                 options.position(new LatLng(42.882004,74.582748));
                 mapboxMap.addMarker(options);
 
-                mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+                mapboxMap.setStyle(Style.DARK, new Style.OnStyleLoaded() {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
 
@@ -56,6 +56,7 @@ public class MapFragment extends Fragment {
                 });
             }
         });
+
 
         return view;
     }

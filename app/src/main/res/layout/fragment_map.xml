@@ -3,13 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.MapFragment">
 
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="42.882004"
+        mapbox:mapbox_cameraTargetLng="74.582748"
+        mapbox:mapbox_cameraZoom="10"
+        mapbox:mapbox_cameraBearing="0"
+        mapbox:mapbox_cameraTilt="50"
+        mapbox:mapbox_cameraZoomMax="50"
+        mapbox:mapbox_cameraZoomMin="1"/>
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/map_icon"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintLeft_toLeftOf="parent"
+        mapbox:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
