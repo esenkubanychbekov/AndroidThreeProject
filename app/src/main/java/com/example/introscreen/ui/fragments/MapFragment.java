@@ -2,20 +2,25 @@ package com.example.introscreen.ui.fragments;
 
 
 
-import android.app.Notification;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import com.example.introscreen.R;
+import com.example.introscreen.ui.main.MainActivity;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.annotations.MarkerOptions;
 import com.mapbox.mapboxsdk.geometry.LatLng;
@@ -23,7 +28,6 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
-
 import static com.example.introscreen.App.CHANEL_1;
 
 
@@ -34,6 +38,7 @@ public class MapFragment extends Fragment {
 
     private MapView mapView;
     Button button;
+    private int id =0;
 
     public MapFragment() {
 
@@ -75,19 +80,44 @@ public class MapFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Notification notification = new NotificationCompat.Builder(getContext(),CHANEL_1)
+
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, 0);
+                createNotificationChannel();
+
+                NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(),CHANEL_1)
                         .setSmallIcon(R.drawable.ic_one)
                         .setContentTitle("My notification")
                         .setContentText("Much longer text that cannot fit one line...")
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                        .build();
+                        .setContentIntent(pendingIntent)
+                        .setAutoCancel(true);
+
                 NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getContext());
-                notificationManagerCompat.notify(1,notification);
+                notificationManagerCompat.notify(id,notification.build());
+                id +=1;
             }
         });
 
     }
+
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = CHANEL_1;
+            String description = "10";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANEL_1, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = (NotificationManager)
+                    getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+
 
 
 
