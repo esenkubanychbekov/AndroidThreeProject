@@ -42,7 +42,15 @@ dependencies {
     //mapbox dependencies
 
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.4.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v8:0.7.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.11.0'
+
+    //test dependencies
+
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation 'com.21buttons:fragment-test-rule:2.0.1'
+    debugImplementation 'com.21buttons:fragment-test-rule-extras:2.0.1'
 
 }
